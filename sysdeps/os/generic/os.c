@@ -39,3 +39,14 @@ int sys_write(int fd, const void* buf, size_t cnt, ssize_t* bytes_written)
 	*bytes_written = ret;
 	return 0;
 }
+
+int sys_exit(int status)
+{
+	syscall(SYS_EXIT);
+	return 0;
+}
+
+pid_t sys_getpid()
+{
+	return (pid_t)syscall(SYS_GETPID);
+}

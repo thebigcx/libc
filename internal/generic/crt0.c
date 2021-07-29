@@ -1,5 +1,5 @@
-#include <sys/internal.h>
-#include <unistd.h>
+#include <libc/libc-internal.h>
+#include <stdlib.h>
 
 extern int main(int, void**);
 

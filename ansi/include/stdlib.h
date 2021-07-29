@@ -17,3 +17,5 @@ int rand();
 void srand(unsigned int seed);
 
 void abort();
+
+void exit(int status);

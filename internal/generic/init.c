@@ -1,4 +1,4 @@
-#include <sys/internal.h>
+#include <libc/libc-internal.h>
 
 void __libc_init()
 {

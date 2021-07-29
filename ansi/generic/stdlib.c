@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <signal.h>
+#include <libc/sysdeps-internal.h>
 
 int abs(int n)
 {
@@ -10,4 +11,9 @@ int abs(int n)
 void abort()
 {
     raise(SIGABRT);
+}
+
+void exit(int status)
+{
+	sys_exit(status);
 }

@@ -1,4 +1,4 @@
-#include <sys/internal.h>
+#include <libc/libc-internal.h>
 #include <stdlib.h>
 #include <stddef.h>
 #include <unistd.h>
