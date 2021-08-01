@@ -21,5 +21,8 @@
 #define SYS_JOINTHREAD  	16
 #define SYS_KILL     		17
 #define SYS_GETPID      	18
+#define SYS_SIGACTION		19
+#define SYS_CHDIR			20
+#define SYS_GETCWD			21
 
 uint64_t syscall(uint64_t sysno, ...);

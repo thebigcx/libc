@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <fcntl.h>
 
 FILE* fopen(const char* path, const char* mode)
 {
