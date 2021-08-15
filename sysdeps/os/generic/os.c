@@ -145,3 +145,17 @@ int sys_munmap(void* addr, size_t length)
 {
     return syscall(SYS_munmap, addr, length);
 }
+
+int sys_chdir(const char* path)
+{
+    return syscall(SYS_chdir, path);
+}
+
+int sys_getcwd(char* buf, size_t size, char** ret)
+{
+    char* wd = (char*)syscall(SYS_getcwd, buf, size);
+    *ret = wd;
+
+    // TODO: error check
+    return 0;
+}

@@ -27,3 +27,5 @@ int sys_lseek(int fd, off_t off, int whence, off_t* npos);
 int sys_ioctl(int fd, unsigned long request, void* argp);
 int sys_mmap(void* addr, size_t length, int prot, int flags, int fd, off_t offset, void** ret);
 int sys_munmap(void* addr, size_t length);
+int sys_chdir(const char* path);
+int sys_getcwd(char* buf, size_t size, char** ret);

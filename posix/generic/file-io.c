@@ -59,31 +59,31 @@ ssize_t write(int fd, const void* buf, size_t count)
 	return bytes_written;
 }
 
-/*int chdir(const char* path)
+int chdir(const char* path)
 {
 	int e = sys_chdir(path);
 	if (e != 0)
 	{
-		// TODO: set errno
+        errno = e;
 		return -1;
 	}
 
 	return 0;
-}*/
+}
 
-/*char* getcwd(char* buf, size_t size)
+char* getcwd(char* buf, size_t size)
 {
 	char* ret;
 	int e = sys_getcwd(buf, size, &ret);
 
 	if (e != 0)
 	{
-		// TODO: set errno
+        errno = e;
 		return NULL;
 	}
 
 	return ret;
-}*/
+}
 
 struct dirent* readdir(DIR* dirp)
 {

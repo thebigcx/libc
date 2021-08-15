@@ -16,5 +16,7 @@
 #define SYS_getpid          11
 #define SYS_lseek           12
 #define SYS_ioctl           13
+#define SYS_chdir           14
+#define SYS_getcwd          15
 
 uint64_t syscall(uint64_t sysno, ...);
