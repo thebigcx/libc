@@ -10,6 +10,7 @@ SOURCES := internal/generic/init.c				\
 		   ansi/generic/rand.c					\
 		   ansi/generic/string.c				\
 		   ansi/generic/signal.c				\
+		   ansi/generic/errno.c					\
 		   posix/generic/file-io.c				\
 		   posix/generic/posix-proc.c 			\
 		   posix/generic/posix-time.c			\

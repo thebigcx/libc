@@ -1,6 +1,7 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <stddef.h>
+#include <errno.h>
 #include <libc/sysdeps-internal.h>
 
 int open(const char* filename, int flags, mode_t mode)
@@ -10,7 +11,7 @@ int open(const char* filename, int flags, mode_t mode)
 
 	if (err)
 	{
-		// TODO: set errno
+        errno = err;
 		return -1;
 	}
 
@@ -23,7 +24,7 @@ int close(int fd)
 	
 	if (err)
 	{
-		// TODO set errno
+        errno = err;
 		return -1;
 	}
 
@@ -37,7 +38,7 @@ ssize_t read(int fd, void* buf, size_t count)
 
 	if (err)
 	{
-		// TODO: set errno
+        errno = err;
 		return -1;
 	}
 
@@ -51,7 +52,7 @@ ssize_t write(int fd, const void* buf, size_t count)
 
 	if (err)
 	{
-		// TODO: set errno
+        errno = err;
 		return -1;
 	}
 
@@ -103,6 +104,13 @@ off_t lseek(int fd, off_t off, int whence)
 {
     off_t npos;
     int err = sys_lseek(fd, off, whence, &npos);
+    
+    if (err)
+    {
+        errno = err;
+        return -1;
+    }
+
     return npos;
 }
 
@@ -111,8 +119,10 @@ int ioctl(int fd, unsigned long request, void* argp)
     int ret = sys_ioctl(fd, request, argp);
 
     if (ret < 0)
+    {
+        errno = ret;
         return -1;
-        // TODO: set errno
-
+    }
+    
     return ret; // Some ioctl's return non-negative outputs
 }
