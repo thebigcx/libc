@@ -131,3 +131,17 @@ int sys_ioctl(int fd, unsigned long request, void* argp)
 {
     return syscall(SYS_ioctl, fd, request, argp);
 }
+
+int sys_mmap(void* addr, size_t length, int prot, int flags, int fd, off_t offset, void** ret)
+{
+    void* mapped_addr = (void*)syscall(SYS_mmap, addr, length, prot, flags, fd, offset);
+
+    *ret = mapped_addr;
+
+    return 0;
+}
+
+int sys_munmap(void* addr, size_t length)
+{
+    return syscall(SYS_munmap, addr, length);
+}

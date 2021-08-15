@@ -25,3 +25,5 @@ int sys_closedir(int dir);
 int sys_nanosleep(const struct timespec* req, struct timespec* rem);
 int sys_lseek(int fd, off_t off, int whence, off_t* npos);
 int sys_ioctl(int fd, unsigned long request, void* argp);
+int sys_mmap(void* addr, size_t length, int prot, int flags, int fd, off_t offset, void** ret);
+int sys_munmap(void* addr, size_t length);
