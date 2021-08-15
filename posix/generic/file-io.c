@@ -105,3 +105,14 @@ off_t lseek(int fd, off_t off, int whence)
     int err = sys_lseek(fd, off, whence, &npos);
     return npos;
 }
+
+int ioctl(int fd, unsigned long request, void* argp)
+{
+    int ret = sys_ioctl(fd, request, argp);
+
+    if (ret < 0)
+        return -1;
+        // TODO: set errno
+
+    return ret; // Some ioctl's return non-negative outputs
+}

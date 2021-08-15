@@ -126,3 +126,8 @@ int sys_lseek(int fd, off_t off, int whence, off_t* noff)
 
     return 0;
 }
+
+int sys_ioctl(int fd, unsigned long request, void* argp)
+{
+    return syscall(SYS_ioctl, fd, request, argp);
+}

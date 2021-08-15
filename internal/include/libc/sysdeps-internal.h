@@ -24,3 +24,4 @@ int sys_opendir(const char* name, int* dir);
 int sys_closedir(int dir);
 int sys_nanosleep(const struct timespec* req, struct timespec* rem);
 int sys_lseek(int fd, off_t off, int whence, off_t* npos);
+int sys_ioctl(int fd, unsigned long request, void* argp);

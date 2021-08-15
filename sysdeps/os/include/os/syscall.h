@@ -15,5 +15,6 @@
 #define SYS_kill            10
 #define SYS_getpid          11
 #define SYS_lseek           12
+#define SYS_ioctl           13
 
 uint64_t syscall(uint64_t sysno, ...);
