@@ -58,7 +58,7 @@ ssize_t write(int fd, const void* buf, size_t count)
 	return bytes_written;
 }
 
-int chdir(const char* path)
+/*int chdir(const char* path)
 {
 	int e = sys_chdir(path);
 	if (e != 0)
@@ -68,9 +68,9 @@ int chdir(const char* path)
 	}
 
 	return 0;
-}
+}*/
 
-char* getcwd(char* buf, size_t size)
+/*char* getcwd(char* buf, size_t size)
 {
 	char* ret;
 	int e = sys_getcwd(buf, size, &ret);
@@ -82,7 +82,7 @@ char* getcwd(char* buf, size_t size)
 	}
 
 	return ret;
-}
+}*/
 
 struct dirent* readdir(DIR* dirp)
 {
@@ -97,4 +97,11 @@ DIR* opendir(const char* name)
 int closedir(DIR* dirp)
 {
 	return -1;
+}
+
+off_t lseek(int fd, off_t off, int whence)
+{
+    off_t npos;
+    int err = sys_lseek(fd, off, whence, &npos);
+    return npos;
 }

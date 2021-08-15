@@ -12,7 +12,7 @@ int raise(int sig)
     return kill((int)getpid(), sig);
 }
 
-int sigaction(int signum, const struct sigaction* act, struct sigaction* old)
+/*int sigaction(int signum, const struct sigaction* act, struct sigaction* old)
 {
 	return sys_sigaction(signum, act, old);
-}
+}*/

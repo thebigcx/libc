@@ -45,9 +45,11 @@ $(SO): $(OBJS)
 	@gcc -c $< -o $@
 
 install:
-	cp $(AR) ../../../base/usr/lib/
-	cp $(SO) ../../../base/usr/lib/
-	cp $(CRT0) ../../../base/usr/lib/
+	cp $(AR) $(ROOT)/usr/lib/
+	cp $(SO) $(ROOT)/usr/lib/
+	cp $(CRT0) $(ROOT)/usr/lib/
+	cp -r ansi/include/* $(ROOT)/usr/include/
+	cp -r posix/include/* $(ROOT)/usr/include/
 
 .PHONY:
 clean:
